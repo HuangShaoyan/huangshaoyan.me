@@ -1,0 +1,3 @@
+interface: 127.0.0.1
+auto_accept: True
+worker_threads: 1

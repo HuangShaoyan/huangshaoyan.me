@@ -1,0 +1,7 @@
+fileserver_backend:
+  - git
+
+gitfs_remotes:
+  - https://github.com/HuangShaoyan/huangshaoyan.me.git
+
+gitfs_root: salt
