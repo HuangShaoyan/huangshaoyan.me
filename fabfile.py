@@ -79,7 +79,7 @@ def _config_master(release):
         remote_path='/etc/salt/master.d/base.conf')
 
     if release:
-        sudo('apt-get install python-pip -q -y')
+        sudo('apt-get install git python-pip -q -y')
         sudo('pip install GitPython')
         _put_file(
             local_path='fab_init_conf/gitfs',
