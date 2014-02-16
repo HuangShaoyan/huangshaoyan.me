@@ -1,4 +1,5 @@
 base:
   '*':
     - locale
+    - mysite
     - nginx

@@ -7,4 +7,28 @@ nginx_repo:
       - pkg: nginx
 
 nginx:
-  pkg.installed
+  pkg:
+    - installed
+  service:
+    - running
+    - reload: True
+    - watch:
+      - pkg: nginx
+      - file: /etc/nginx/nginx.conf
+      - file: /etc/nginx/conf.d/no-default.conf
+      - file: /etc/nginx/conf.d/example_ssl.conf
+      - file: /etc/nginx/conf.d/default.conf
+
+/etc/nginx/nginx.conf:
+  file.managed:
+    - source: salt://nginx/nginx.conf
+
+/etc/nginx/conf.d/no-default.conf:
+  file.managed:
+    - source: salt://nginx/no-default.conf
+
+/etc/nginx/conf.d/example_ssl.conf:
+  file.absent
+
+/etc/nginx/conf.d/default.conf:
+  file.absent
